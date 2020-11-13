@@ -16,3 +16,7 @@ pipenv install flask-marshmallow
 pipenv install marshmallow-sqlalchemy
 pipenv install requests
 pipenv install python-dotenv
+pipenv install Flask-Babel
+
+
+pipenv lock --pre --clear

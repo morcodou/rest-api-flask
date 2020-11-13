@@ -15,6 +15,7 @@ pylint = "*"
 black = "*"
 requests = "*"
 python-dotenv = "*"
+flask-babel = "*"
 
 [dev-packages]
 
