@@ -1,0 +1,7 @@
+{
+    "python.formatting.provider": "black",
+    // "python.pythonPath": "venv/bin/python",
+    "python.linting.pylintPath": "Users/apple/.local/share/virtualenvs/rest-api-flask-Kb52iizm/bin/pylint",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
