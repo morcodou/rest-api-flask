@@ -5,14 +5,8 @@ from flask_jwt_extended import JWTManager
 
 from db import db
 from blacklist import BLACKLIST
-from resources.user import (
-    UserRegister,
-    UserLogin,
-    User,
-    TokenRefresh,
-    UserLogout,
-    UserConfirm,
-)
+from resources.user import UserRegister, UserLogin, User, TokenRefresh, UserLogout
+from resources.confirmation import Confirmation, ConfirmationByUser
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 from ma import ma
@@ -20,7 +14,7 @@ from marshmallow import ValidationError
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["PROPAGATE_EXCEPTIONS"] = True
 app.config["JWT_BLACKLIST_ENABLED"] = True  # enable blacklist feature
@@ -28,7 +22,9 @@ app.config["JWT_BLACKLIST_TOKEN_CHECKS"] = [
     "access",
     "refresh",
 ]  # allow blacklisting for access and refresh tokens
-app.secret_key = os.environ.get('JWT_SECRET_KEY')  # could do app.config['JWT_SECRET_KEY'] if we prefer
+app.secret_key = os.environ.get(
+    "JWT_SECRET_KEY"
+)  # could do app.config['JWT_SECRET_KEY'] if we prefer
 api = Api(app)
 
 
@@ -61,7 +57,8 @@ api.add_resource(User, "/user/<int:user_id>")
 api.add_resource(UserLogin, "/login")
 api.add_resource(TokenRefresh, "/refresh")
 api.add_resource(UserLogout, "/logout")
-api.add_resource(UserConfirm, "/user_confirm/<int:user_id>")
+api.add_resource(Confirmation, "/confirmation/<string:confirmation_id>")
+api.add_resource(ConfirmationByUser, "/confirmation/user/<int:user_id>")
 
 if __name__ == "__main__":
     db.init_app(app)
