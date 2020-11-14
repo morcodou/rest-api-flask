@@ -16,6 +16,7 @@ black = "*"
 requests = "*"
 python-dotenv = "*"
 flask-babel = "*"
+flask-uploads = "*"
 
 [dev-packages]
 
