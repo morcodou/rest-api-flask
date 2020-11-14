@@ -11,20 +11,12 @@ from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 from ma import ma
 from marshmallow import ValidationError
-
+from dotenv import load_dotenv
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["PROPAGATE_EXCEPTIONS"] = True
-app.config["JWT_BLACKLIST_ENABLED"] = True  # enable blacklist feature
-app.config["JWT_BLACKLIST_TOKEN_CHECKS"] = [
-    "access",
-    "refresh",
-]  # allow blacklisting for access and refresh tokens
-app.secret_key = os.environ.get(
-    "JWT_SECRET_KEY"
-)  # could do app.config['JWT_SECRET_KEY'] if we prefer
+load_dotenv(".env", verbose=True)
+app.config.from_object("default_config")
+app.config.from_envvar("APPLICATION_SETTINGS")
 api = Api(app)
 
 
