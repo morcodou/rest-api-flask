@@ -27,5 +27,9 @@
     "user_email_exists": "A user with that email already exists.",
     "user_not_confirmed": "You have not confirmed your registration, please check your email <{}>.",
     "user_error_creating": "Internal server error. Failed to create user.",
-    "user_registratered": "Account created successfully, an email with activation has been sen to your email."
+    "user_registratered": "Account created successfully, an email with activation has been sen to your email.",
+
+    "image_uploaded": "Image '{}' uploaded.",
+    "image_illigal_extension": "Extension '{}' is not allowed."
+    
 }

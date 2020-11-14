@@ -27,5 +27,8 @@
     "user_email_exists": "Spanish: A user with that email already exists.",
     "user_not_confirmed": "Spanish: You have not confirmed your registration, please check your email <{}>.",
     "user_error_creating": "Spanish: Internal server error. Failed to create user.",
-    "user_registratered": "Spanish: Account created successfully, an email with activation has been sen to your email."
+    "user_registratered": "Spanish: Account created successfully, an email with activation has been sen to your email.",
+
+    "image_uploaded": "Spanish: Image '{}' uploaded.",
+    "image_illigal_extension": "Spanish: Extension '{}' is not allowed."
 }
