@@ -11,6 +11,6 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
         dump_only = ("id", "confirmation")
 
     @pre_dump
-    def _pred_dump(self, user: UserModel, **kwargs):
+    def _pred_dump(self, user: UserModel, **kwargs) -> UserModel:
         user.confirmation = [user.most_recent_confirmation]
         return user
