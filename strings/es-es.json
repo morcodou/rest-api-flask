@@ -30,9 +30,13 @@
     "user_registratered": "Spanish: Account created successfully, an email with activation has been sen to your email.",
 
     "image_uploaded": "Spanish: Image '{}' uploaded.",
-    "image_illigal_extension": "Spanish: Extension '{}' is not allowed.",
-    "image_illigal_file_name": "Spanish: Illegal filename '{}' requested.",
+    "image_illegal_extension": "Spanish: Extension '{}' is not allowed.",
+    "image_illegal_file_name": "Spanish: Illegal filename '{}' requested.",
     "image_deleted": "Spanish: Image '{}' deleted.",
     "image_not_found": "Spanish: Image '{}' not found.",
-    "image_deleted_failed": "Spanish: Internal server error! Failed to delete image."
+    "image_deleted_failed": "Spanish: Internal server error! Failed to delete image.",
+
+    "avatar_uploaded": "Spanish: Image '{}' uploaded.",
+    "avatar_illegal_extension": "Spanish: Extension '{}' is not allowed.",
+    "avatar_delete_failed": "Spanish: Internal server error! Failed to delete avatar."
 }
