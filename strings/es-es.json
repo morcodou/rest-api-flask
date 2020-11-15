@@ -38,5 +38,6 @@
 
     "avatar_uploaded": "Spanish: Image '{}' uploaded.",
     "avatar_illegal_extension": "Spanish: Extension '{}' is not allowed.",
-    "avatar_delete_failed": "Spanish: Internal server error! Failed to delete avatar."
+    "avatar_delete_failed": "Spanish: Internal server error! Failed to delete avatar.",
+    "avatar_not_found": "Spanish: Image '{}' not found."
 }

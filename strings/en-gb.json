@@ -38,6 +38,6 @@
 
     "avatar_uploaded": "Image '{}' uploaded.",
     "avatar_illegal_extension": "Extension '{}' is not allowed.",
-    "avatar_delete_failed": "Internal server error! Failed to delete avatar."
-    
+    "avatar_delete_failed": "Internal server error! Failed to delete avatar.",
+    "avatar_not_found": "Image '{}' not found."
 }
