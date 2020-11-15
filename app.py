@@ -12,7 +12,7 @@ from resources.user import UserRegister, UserLogin, User, TokenRefresh, UserLogo
 from resources.confirmation import Confirmation, ConfirmationByUser
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
-from resources.image import ImageUpload
+from resources.image import ImageUpload, Image
 
 
 from ma import ma
@@ -63,6 +63,7 @@ api.add_resource(UserLogout, "/logout")
 api.add_resource(Confirmation, "/confirmation/<string:confirmation_id>")
 api.add_resource(ConfirmationByUser, "/confirmation/user/<int:user_id>")
 api.add_resource(ImageUpload, "/upload/image")
+api.add_resource(Image, "/image/<string:filename>")
 
 if __name__ == "__main__":
     db.init_app(app)
