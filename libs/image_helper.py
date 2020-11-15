@@ -46,5 +46,5 @@ def get_basename(file: Union[str, FileStorage]) -> str:
 
 
 def get_extension(file: Union[str, FileStorage]) -> str:
-        filename = _retrieve_filename(file)
+    filename = _retrieve_filename(file)
     return os.path.splitext(filename)[1]

@@ -16,8 +16,12 @@ pipenv install flask-marshmallow
 pipenv install marshmallow-sqlalchemy
 pipenv install requests
 pipenv install python-dotenv
-pipenv install Flask-Babel
-pipenv install Flask-uploads
+pipenv install flask-uploads
 
+# from werkzeug import secure_filename,FileStorage
+# to
+
+# from werkzeug.utils import secure_filename
+# from werkzeug.datastructures import  FileStorage
 
 pipenv lock --pre --clear

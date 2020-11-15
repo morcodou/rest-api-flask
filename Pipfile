@@ -11,11 +11,8 @@ Flask-SQLAlchemy = "*"
 marshmallow = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
-pylint = "*"
-black = "*"
 requests = "*"
 python-dotenv = "*"
-flask-babel = "*"
 flask-uploads = "*"
 
 [dev-packages]
