@@ -8,9 +8,10 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
         model = UserModel
         load_instance = True
         load_only = ("password",)
-        dump_only = ("id", "confirmation")
+        dump_only = ("id", )
+        # dump_only = ("id", "confirmation")
 
-    @pre_dump
-    def _pred_dump(self, user: UserModel, **kwargs) -> UserModel:
-        user.confirmation = [user.most_recent_confirmation]
-        return user
+    # @pre_dump
+    # def _pred_dump(self, user: UserModel, **kwargs) -> UserModel:
+    #     user.confirmation = [user.most_recent_confirmation]
+    #     return user
