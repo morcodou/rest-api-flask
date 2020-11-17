@@ -21,3 +21,5 @@ class Order(Resource):
 
         order = OrderModel(items=items, status="pending")
         order.save_to_db()
+
+        order.set_status("something")

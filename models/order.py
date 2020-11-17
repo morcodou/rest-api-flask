@@ -3,16 +3,21 @@ from typing import List
 from db import db
 
 
+items_to_orders = db.Table(
+    "items_to_orders",
+    db.Column("item_id", db.Integer, db.ForeignKey("items.id")),
+    db.Column("order_id", db.Integer, db.ForeignKey("orders.id")),
+)
+
+
 class OrderModel(db.Model):
     __tablename__ = "orders"
 
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(20), nullable=False)
 
-    items = db.relationship("ItemModel", lazy="dynamic")
+    items = db.relationship("ItemModel", secondary=items_to_orders, lazy="dynamic")
 
-    # order_id = db.Column(db.Integer, db.ForeignKey("orders.id"), nullable=False)
-    # order = db.relationship("OrderModel")
     @classmethod
     def find_by_id(cls, _id: int) -> "OrderModel":
         return cls.query.filter_by(id=_id).first()
@@ -23,7 +28,7 @@ class OrderModel(db.Model):
 
     def set_status(self, new_status: str) -> None:
         self.status = new_status
-        db.save_to_db()
+        self.save_to_db()
 
     def save_to_db(self) -> None:
         db.session.add(self)
