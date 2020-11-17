@@ -6,6 +6,10 @@ from models.item import ItemModel
 from models.order import OrderModel, ItemsInOrder
 from libs.strings import gettext
 
+from schemas.order import OrderSchema
+
+order_schema = OrderSchema()
+
 
 class Order(Resource):
     @classmethod
@@ -24,4 +28,8 @@ class Order(Resource):
         order = OrderModel(items=items, status="pending")
         order.save_to_db()
 
-        order.set_status("something")
+        order.set_status("failed")
+        # order.charge_with_stripe(data["token"])
+        order.set_status("complete")
+
+        return order_schema.dump(order)

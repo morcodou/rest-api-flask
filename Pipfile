@@ -18,6 +18,7 @@ psycopg2-binary = "*"
 flask-migrate = "*"
 alembic = "*"
 flask-oauthlib = "*"
+stripe = "*"
 
 [dev-packages]
 
