@@ -26,3 +26,6 @@ python -m flask db init
 # from werkzeug.datastructures import  FileStorage
 
 pipenv lock --pre --clear
+
+# [pipenv]
+# allow_prereleases = true

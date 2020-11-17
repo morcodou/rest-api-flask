@@ -2,12 +2,14 @@ import os
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
-from flask_migrate import Migrate
+
+# from flask_migrate import Migrate
 # from flask_uploads import configure_uploads, patch_request_class
 # from libs.image_helper import IMAGES_SET
 
 
 from db import db
+
 # from blacklist import BLACKLIST
 from resources.user import UserRegister, UserLogin, User
 
@@ -33,7 +35,7 @@ app.config.from_envvar("APPLICATION_SETTINGS")
 
 api = Api(app)
 jwt = JWTManager(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 
 @app.before_first_request
@@ -70,8 +72,8 @@ api.add_resource(UserLogin, "/login")
 # api.add_resource(AvatarUpload, "/upload/avatar")
 # api.add_resource(Avatar, "/avatar/<int:user_id>")
 
-db.init_app(app)
 
 if __name__ == "__main__":
+    db.init_app(app)
     ma.init_app(app)
     app.run(port=5000)

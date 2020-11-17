@@ -14,6 +14,7 @@ from schemas.user import UserSchema
 from models.user import UserModel
 from blacklist import BLACKLIST
 from libs.mailgun import MailGunException
+
 # from models.confirmation import ConfirmationModel
 from libs.strings import gettext
 
@@ -38,9 +39,9 @@ class UserRegister(Resource):
             # confirmation.save_to_db()
             # user.send_confirmation_email()
             return {"message": gettext("user_registratered")}, 201
-        except MailGunException as mge:
-            user.delete_from_db()
-            return {"message": str(mge)}, 500
+        # except MailGunException as mge:
+        #     user.delete_from_db()
+        #     return {"message": str(mge)}, 500
         except:
             traceback.print_exc()
             user.delete_from_db()
