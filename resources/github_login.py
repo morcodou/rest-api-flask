@@ -1,16 +1,14 @@
-from flask_restful import Resource, request
+from flask_restful import Resource
 from flask_jwt_extended import create_access_token, create_refresh_token
 from oa import github
-from flask import g
+from flask import g, request, url_for
 from models.user import UserModel
 
 
 class GithubLogin(Resource):
     @classmethod
     def get(cls):
-        return github.authorize(
-            callback="http://localhost:5000/login/github/authorized"
-        )
+        return github.authorize(url_for("github.authorize", _external=True))
 
 
 class GithubAuthorize(Resource):
