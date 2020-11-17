@@ -15,6 +15,8 @@ from models.user import UserModel
 from blacklist import BLACKLIST
 from libs.mailgun import MailGunException
 
+from libs.test_flask_lib import function_accessing_global
+
 # from models.confirmation import ConfirmationModel
 from libs.strings import gettext
 

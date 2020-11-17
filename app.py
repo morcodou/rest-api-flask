@@ -21,7 +21,7 @@ from oa import oauth
 
 # from blacklist import BLACKLIST
 from resources.user import UserRegister, UserLogin, User
-from resources.github_login import GithubLogin
+from resources.github_login import GithubLogin,  GithubAuthorize
 
 # , TokenRefresh, UserLogout
 # from resources.confirmation import Confirmation, ConfirmationByUser
@@ -71,6 +71,7 @@ api.add_resource(UserRegister, "/register")
 api.add_resource(User, "/user/<int:user_id>")
 api.add_resource(UserLogin, "/login")
 api.add_resource(GithubLogin, "/login/github")
+api.add_resource(GithubAuthorize, "/login/github/authorized")
 # api.add_resource(TokenRefresh, "/refresh")
 # api.add_resource(UserLogout, "/logout")
 # api.add_resource(Confirmation, "/confirmation/<string:confirmation_id>")
