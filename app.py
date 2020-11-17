@@ -2,13 +2,15 @@ import os
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
-from flask_uploads import configure_uploads, patch_request_class
-from libs.image_helper import IMAGES_SET
+from flask_migrate import Migrate
+# from flask_uploads import configure_uploads, patch_request_class
+# from libs.image_helper import IMAGES_SET
 
 
 from db import db
-from blacklist import BLACKLIST
+# from blacklist import BLACKLIST
 from resources.user import UserRegister, UserLogin, User
+
 # , TokenRefresh, UserLogout
 # from resources.confirmation import Confirmation, ConfirmationByUser
 # from resources.item import Item, ItemList
@@ -26,10 +28,12 @@ load_dotenv(".env", verbose=True)
 app.config.from_object("default_config")
 app.config.from_envvar("APPLICATION_SETTINGS")
 
-patch_request_class(app, 32 * 1024 * 1024)
-configure_uploads(app, IMAGES_SET)
+# patch_request_class(app, 32 * 1024 * 1024)
+# configure_uploads(app, IMAGES_SET)
 
 api = Api(app)
+jwt = JWTManager(app)
+migrate = Migrate(app, db)
 
 
 @app.before_first_request
@@ -42,14 +46,12 @@ def handle_marshmallow_validation(err):
     return jsonify(err.messages), 400
 
 
-jwt = JWTManager(app)
-
-# This method will check if a token is blacklisted, and will be called automatically when blacklist is enabled
-@jwt.token_in_blacklist_loader
-def check_if_token_in_blacklist(decrypted_token):
-    return (
-        decrypted_token["jti"] in BLACKLIST
-    )  # Here we blacklist particular JWTs that have been created in the past.
+# # This method will check if a token is blacklisted, and will be called automatically when blacklist is enabled
+# @jwt.token_in_blacklist_loader
+# def check_if_token_in_blacklist(decrypted_token):
+#     return (
+#         decrypted_token["jti"] in BLACKLIST
+#     )  # Here we blacklist particular JWTs that have been created in the past.
 
 
 # api.add_resource(Store, "/store/<string:name>")
