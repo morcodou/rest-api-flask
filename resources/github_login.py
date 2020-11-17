@@ -17,8 +17,11 @@ class GithubAuthorize(Resource):
     @classmethod
     def get(cls):
         resp = github.authorized_response()
-        if resp is None or resp.get("access_token") is None
-            error_response = {"error" : request.args["error"], "error_description": request.args["error_description"]}
+        if resp is None or resp.get("access_token") is None:
+            error_response = {
+                "error": request.args["error"],
+                "error_description": request.args["error_description"],
+            }
             return error_response
 
         g.access_token = resp["access_token"]
