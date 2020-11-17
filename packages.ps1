@@ -17,7 +17,7 @@ pipenv install marshmallow-sqlalchemy
 pipenv install requests
 pipenv install python-dotenv
 pipenv install flask-uploads
-
+pipenv install psycopg2-binary
 # from werkzeug import secure_filename,FileStorage
 # to
 
