@@ -18,6 +18,9 @@ pipenv install requests
 pipenv install python-dotenv
 pipenv install flask-uploads
 pipenv install psycopg2-binary
+pipenv install flask-oauthlib
+
+
 python -m flask db init
 # from werkzeug import secure_filename,FileStorage
 # to
